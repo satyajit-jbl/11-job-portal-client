@@ -4,7 +4,7 @@ import loginLottieJSON from '../../assets/lottie/login.json'
 import AuthContext from '../../context/AuthContext/AuthContext';
 import AuthProvider from '../../context/AuthContext/AuthProvider';
 import SocialLogin from '../shared/SocialLogin';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 
 
 
