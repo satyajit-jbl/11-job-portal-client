@@ -1,10 +1,11 @@
 import React from 'react';
-import { data, useParams } from 'react-router-dom';
+import { data, useNavigate, useParams } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import Swal from 'sweetalert2';
 
 const JobApply = () => {
     const {user} = useAuth();
+    const navigate = useNavigate();
     const {id} = useParams(); // need to clear
     console.log(id, user);
 
@@ -32,7 +33,9 @@ const JobApply = () => {
         })
         .then(res=>res.json())
         .then(data=>{
-            if(data.insertedId>0){
+            console.log(data);
+            
+            if(data.insertedId){
                 Swal.fire({
                     position: "top-end",
                     icon: "success",
@@ -40,7 +43,9 @@ const JobApply = () => {
                     showConfirmButton: false,
                     timer: 1500
                   });
+                  navigate('/myApplications'); 
             }   
+          
         })
     }
     return (
